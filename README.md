@@ -5,7 +5,7 @@ Step2: Download https://drive.google.com/file/d/1AD_7xesdcJEtth6SZdF5xTllRqPZ3E6
 
 Step3: Download https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing and put it in a folder glove_dir
 
-Step4: Download https://drive.google.com/drive/folders/1ITcgvp4vZo1Wlb66d_SnHvVmLKIqqYbR?usp=sharing and put them in a folder wikidata_dir
+
 
 Step11: Download train_preprocessed.zip from https://drive.google.com/file/d/1HmLOGTV_v18grW_hXpu_s6MdogEJDM_a/view?usp=sharing and extract and put the contents (preprocessed pickle files of the train data)dump 
 
