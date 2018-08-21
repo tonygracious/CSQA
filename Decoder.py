@@ -106,7 +106,7 @@ class Decoder(nn.Module):
 
         for i in range(seq_len):
             # initially tc_ratio is 1 but then slowly decays to 0 (to match inference time)
-            if torch.randn(1)[0] < self.tc_ratio:
+            if torch.rand(1)[0] < self.tc_ratio:
                 inp_tok = target[:, i].unsqueeze(1)
 
             inp_tok_embedding = self.embed_in(inp_tok)
