@@ -18,7 +18,7 @@ class UtteranceEncoder(nn.Module):
         self.drop = nn.Dropout(options.drp)
         self.direction = 2 if options.bidi else 1
         # by default they requires grad is true
-        self.embed_vocab = nn.Embedding(options.vocab_size, options.emb_size, padding_idx=None, sparse=False)
+        self.embed_vocab = nn.Embedding(options.vocab_size, options.emb_size, padding_idx= 3, sparse=False)
         #self.embed_kb = nn.Embedding(kb_size, kb_emb_size, padding_idx =  1 , sparse= False)
         #self.embed_kb.weight.requires_grad = False
         if self.use_embed:

@@ -31,7 +31,7 @@ class model(nn.Module):
         self.kg_predict = KG_embedding(options)
 
     def forward(self, u1_text, u1_kb, u2_text, u2_kb,  u3,\
-                cand_ent_embed, cand_rel_embed, cand_val_embed):
+                cand_ent_embed, cand_rel_embed, cand_val_embed, mem_weights):
         
         #u1_text, u1_kb, u2_text, u2_kb, target_kb, target_utterance,\
         #                cand_ent_embed, cand_rel_embed, cand_val = batch
@@ -54,7 +54,7 @@ class model(nn.Module):
         #cand_val_embed  = torch.FloatTensor(ent_embed[cand_val]).cuda()
         cand_pred = cand_val_embed
         
-        kb_context = self.kvmlookup(q,  cand_ent_embed, cand_rel_embed, cand_val_embed)
+        kb_context = self.kvmlookup(q,  cand_ent_embed, cand_rel_embed, cand_val_embed, mem_weights)
         
         
         context = torch.cat((q, kb_context), dim= 2)

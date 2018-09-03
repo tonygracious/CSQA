@@ -23,7 +23,7 @@ class Decoder(nn.Module):
         self.tanh = nn.Tanh()
         self.shared_weight = options.shrd_dec_emb
 
-        self.embed_in = nn.Embedding(res_vocab_size, self.emb_size, padding_idx=None, sparse=False)
+        self.embed_in = nn.Embedding(res_vocab_size, self.emb_size, padding_idx=3, sparse=False)
         
         if options.use_embed:
             pretrained_weight_vocab = self.load_embeddings()
@@ -137,7 +137,7 @@ class Decoder(nn.Module):
             # here we do greedy decoding
             # so we can ignore the last symbol which is a padding token
             # technically we don't need a softmax here as we just want to choose the max token, max score will result in max softmax.Duh!
-
+            inp_tok = inp_tok.detach()
         dec_o = torch.cat(preds, 1)
         dec_lmo = torch.cat(lm_preds, 1) if self.train_lm else None
         return dec_o, dec_lmo

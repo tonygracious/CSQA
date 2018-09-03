@@ -24,12 +24,14 @@ class KVMemoryReader(nn.Module):
         self.n_hops = 2
         self.drop = nn.Dropout(options.drp)
         
-    def forward(self, q, ent, rel, value):
+    def forward(self, q, ent, rel, value, mem_weights):
         key = torch.cat((ent, rel), dim = 2)
         q_i = q
         for i in range(self.n_hops):
             q_temp = self.C(q_i)
-            att = self.softmax( torch.sum(q_temp * self.drop(key), dim = 2) ) 
+            att = self.softmax( torch.sum(q_temp * self.drop(key), dim = 2) ) * mem_weights
+            normalizer = att.sum(dim= 1).unsqueeze(1) + 0.0000000001
+            att = att / normalizer
             ot = torch.sum(att.unsqueeze(2) * value, dim = 1).unsqueeze(1)
             q_i = q_i + self.R(ot)
             #proj = self.softmax(q_i * self.A(self.dim_red(key)) ) * self.A(value)
