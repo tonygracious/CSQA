@@ -1,5 +1,5 @@
 
-# [Complex Sequential Question Answering: Towards Learning to Converse Over Linked Question Answer Pairs with a Knowledge Graph](https://arxiv.org/pdf/1801.10314.pdf)
+# Complex Sequential Question Answering: Towards Learning to Converse Over Linked Question Answer Pairs with a Knowledge Graph (https://arxiv.org/pdf/1801.10314.pdf)
 
 CSQA Pytorch Implementation
 
