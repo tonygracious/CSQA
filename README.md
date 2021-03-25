@@ -1,4 +1,6 @@
-# CSQA
+
+# [Complex Sequential Question Answering: Towards Learning to Converse Over Linked Question Answer Pairs with a Knowledge Graph](https://arxiv.org/pdf/1801.10314.pdf)
+
 CSQA Pytorch Implementation
 
 Step2: Download https://drive.google.com/file/d/1AD_7xesdcJEtth6SZdF5xTllRqPZ3E6-/view?usp=sharing and extract it (and rename the folder to transe_dir)
